@@ -5,6 +5,6 @@
 ### Useage
 ```
 git clone git@github.com:micha3lbrown/permutations.git
-cd permutation
+cd permutations
 node app.js string.txt
 ```
