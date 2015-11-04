@@ -34,14 +34,14 @@ function permutation (input) {
     input.splice(i, 0, letter);
     usedLetters.pop();
   }
-  
+
   return response;
 }
 
 /**
  * @param  {array}
  * @return {String}
- * Iterate over array of strings in file and call purmutation()
+ * Iterate over array of strings in file and call purmutation() 
  */
 function iterate (a) {
   
