@@ -1,32 +1,49 @@
 var fs = require('fs'),
     pathToFile = process.argv[2],
-    permArr = [],
-    usedChars = [];
+    usedLetters = [];
 
-var arrayText = fs.readFileSync(pathToFile).toString().split(/\n/);
+
+var arrayText = fs.readFileSync(pathToFile).toString().split(/\n/).reverse();
 
 iterate(arrayText);
 
 function permutate (input) {
-  var i, ch;
-  console.log(input.split());
+  var i, letter;
+  var partial = [];
+
   for (i = 0; i < input.length; i++) {
-    ch = input.splice(i, 1)[0];
-    usedChars.push(ch);
+    letter = input.splice(i,1)[0];
+    console.log(i, letter);
+    usedLetters.push(letter);
+
     if (input.length == 0) {
-      permArr.push(usedChars.slice());
+      partial.push(usedLetters.slice());
     }
     permutate(input);
-    input.splice(i, 0, ch);
-    usedChars.pop();
+    input.splice(i, 0, letter);
+    usedLetters.pop();
   }
-  return permArr
-};
+
+  return partial;
+}
 
 function iterate (a) {
-  console.log(permutate(a));
-  for (var i = a.length - 1; i >= 0; i--) {
-     console.log(a[i].split()[0]);
-     permutate(a[i].split());
-   };
+  var response = [];
+
+  for (var i = 0; i < a.length; i++) {
+    response.push(permutate(a[i].split('')));
+  };
+   console.log(response);
 }
+
+// for (i = 0; i < input.length; i++) {
+  //   ch = input.splice(i, 1)[0]; /get the first char
+  //   usedChars.push(ch); /push char to usedChars
+  //   if (input.length == 0) { if input is empty push all usedChars
+  //     permArr.push(usedChars.slice());
+  //   }
+  //   permutate(input);
+  //   input.splice(i, 0, ch);
+  //   usedChars.pop();
+  // }
+  // return permArr
