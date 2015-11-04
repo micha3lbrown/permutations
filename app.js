@@ -12,8 +12,6 @@ var fs = require('fs'),
 // Read file that is passed as third argument from command line. 
 var arrayText = fs.readFileSync(pathToFile).toString().split(/\n/);
 
-iterate(arrayText);
-
 /**
  * @param  {array}
  * @return {array}
@@ -54,3 +52,6 @@ function iterate (a) {
   console.log(response.sort().join());
   return response.sort().join(); 
 }
+
+// Calls the code. 
+iterate(arrayText);
