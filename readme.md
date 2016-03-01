@@ -2,7 +2,7 @@
 ##### By: Michael Brown
 ================================================
 
-### Useage
+### Usage
 ```
 git clone git@github.com:micha3lbrown/permutations.git
 cd permutations
